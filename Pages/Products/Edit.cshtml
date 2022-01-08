@@ -1,0 +1,64 @@
+﻿@page
+@model Proiect_MPD.Pages.Products.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Product.ID" />
+            <div class="form-group">
+                <label asp-for="Product.Name" class="control-label"></label>
+                <input asp-for="Product.Name" class="form-control" />
+                <span asp-validation-for="Product.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Brand" class="control-label"></label>
+                <input asp-for="Product.Brand" class="form-control" />
+                <span asp-validation-for="Product.Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Price" class="control-label"></label>
+                <input asp-for="Product.Price" class="form-control" />
+                <span asp-validation-for="Product.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Discount" class="control-label"></label>
+                <input asp-for="Product.Discount" class="form-control" />
+                <span asp-validation-for="Product.Discount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.DiscountedPrice" class="control-label"></label>
+                <input asp-for="Product.DiscountedPrice" class="form-control" />
+                <span asp-validation-for="Product.DiscountedPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.DiscountUntill" class="control-label"></label>
+                <input asp-for="Product.DiscountUntill" class="form-control" />
+                <span asp-validation-for="Product.DiscountUntill" class="textdanger"></span>
+            </div>
+            <label asp-for="Product.RetailerID" class="control-label">Retailer Name</label>
+            <select asp-for="Product.RetailerID" class="form-control" asp-items="ViewBag.RetailerID">
+            </select>
+            <span asp-validation-for="Product.RetailerID" class="text-danger"></span>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
